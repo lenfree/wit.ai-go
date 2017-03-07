@@ -53,25 +53,18 @@ type Location struct {
 
 // Hack to fix deprecated API response
 type EntityRes struct {
-	Type []struct {
-		Confidence float64 `json:"confidence"`
-		Type       string  `json:"type"`
-		Value      string  `json:"value"`
-	} `json:"pizza_type"`
-	Intent []struct {
-		Confidence float64 `json:"confidence"`
-		Type       string  `json:"type"`
-		Value      string  `json:"value"`
-	} `json:"intent"`
+	Confidence float64 `json:"confidence"`
+	Type       string  `json:"type"`
+	Value      string  `json:"value"`
 }
 
 // https://wit.ai/docs/http/20160330#get-intent-via-text-link
 type Message struct {
 	ResponseError
 
-	MessageId *string   `json:"msg_id"`
-	Text      *string   `json:"_text"`
-	Outcomes  EntityRes `json:"entities"`
+	MessageId *string                `json:"msg_id"`
+	Text      *string                `json:"_text"`
+	Outcomes  map[string][]EntityRes `json:"entities"`
 }
 
 type Outcome struct {
