@@ -87,9 +87,7 @@ func (m Message) String() string {
 	if m.Text != nil {
 		attrs = append(attrs, fmt.Sprintf("Text: %s", *m.Text))
 	}
-	if len(m.Outcomes) > 0 {
-		attrs = append(attrs, fmt.Sprintf("Outcomes: %v", m.Outcomes))
-	}
+	attrs = append(attrs, fmt.Sprintf("Entities: %v", m.Outcomes))
 
 	return fmt.Sprintf("{%s}", strings.Join(attrs, ", "))
 }
