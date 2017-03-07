@@ -53,20 +53,16 @@ type Location struct {
 
 // Hack to fix deprecated API response
 type EntityRes struct {
-	MsgID    string `json:"msg_id"`
-	Text     string `json:"_text"`
-	Entities struct {
-		PizzaType []struct {
-			Confidence float64 `json:"confidence"`
-			Type       string  `json:"type"`
-			Value      string  `json:"value"`
-		} `json:"pizza_type"`
-		Intent []struct {
-			Confidence float64 `json:"confidence"`
-			Type       string  `json:"type"`
-			Value      string  `json:"value"`
-		} `json:"intent"`
-	} `json:"entities"`
+	Type []struct {
+		Confidence float64 `json:"confidence"`
+		Type       string  `json:"type"`
+		Value      string  `json:"value"`
+	} `json:"pizza_type"`
+	Intent []struct {
+		Confidence float64 `json:"confidence"`
+		Type       string  `json:"type"`
+		Value      string  `json:"value"`
+	} `json:"intent"`
 }
 
 // https://wit.ai/docs/http/20160330#get-intent-via-text-link
